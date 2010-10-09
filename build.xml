@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+
+<!-- OLD BUILD.XML -->
+
+
+<project name="HW1-RMI-ComputeServer" basedir=".">
+	<description>Builds, tests, and runs the project 290-HW1-New.</description>
+
+	<property name="src" location="source" />
+	<property name="build" location="build/classes" />
+	<property name="dist" location="dist" />
+
+	<!-- codebase properties -->
+	<property name="client_file_codebase" location="/cs/student/kowshik/public_html/CS290B/HW1/" />
+	<property name="client_web_codebase" value="http://www.cs.ucsb.edu/~kowshik/CS290B/HW1/" />
+
+	<target name="clean" description="clean up">
+		<!-- Delete the ${build} and ${dist} directory trees -->
+		<delete dir="${client_file_codebase}/tasks" />
+		<delete dir="${build}" />
+		<delete dir="${dist}" />
+	</target>
+
+
+	<target name="compile" description="compile the source">
+		<!-- Create the build directory structure used by compile -->
+		<mkdir dir="${build}" />
+
+		<!-- Compile the java code from ${src} into ${build} -->
+		<javac srcdir="${src}" destdir="${build}" />
+	</target>
+
+	<target name="dist" depends="compile" description="generate the distribution">
+		<!-- Create the distribution directory -->
+		<mkdir dir="${dist}" />
+
+		<!-- Make Computer.jar file -->
+		<jar jarfile="${dist}/computer.jar" basedir="${build}" includes="api/** computer/**" />
+
+
+		<!-- Make Client.jar file -->
+		<jar jarfile="${dist}/client.jar" basedir="${build}" includes="client/** api/** tasks/**" />
+		
+	</target>
+
+	<target name="javadoc" description="create javadocs">
+		<javadoc packagenames="tasks.*,api.*,client.*,computer.*" sourcepath="${src}" destdir="documents/javadoc" />
+	</target>
+
+	<target name="runComputer" description="run computer">
+		<java classname="computer.ComputerImpl" fork="true">
+			<jvmarg value="-Djava.security.policy=policy" />
+			<classpath>
+				<pathelement location="dist/computer.jar" />
+			</classpath>
+		</java>
+	</target>
+
+	<target name="runMandelbrotSetClient" description="run client">
+		<java classname="client.MandelbrotSetClient" fork="true">
+			<jvmarg value="-Djava.rmi.server.codebase=${client_web_codebase}" />
+			<jvmarg value="-Djava.security.policy=policy" />
+			<arg value="localhost" />
+			<classpath>
+				<pathelement location="dist/client.jar" />
+			</classpath>
+		</java>
+	</target>
+
+	<target name="runEuclideanTspClient" description="run client">
+		<java classname="client.EuclideanTspClient" fork="true">
+			<jvmarg value="-Djava.rmi.server.codebase=${client_web_codebase}" />
+			<jvmarg value="-Djava.security.policy=policy" />
+			<arg value="localhost" />
+			<classpath>
+				<pathelement location="dist/client.jar" />
+			</classpath>
+		</java>
+	</target>
+
+
+</project>
