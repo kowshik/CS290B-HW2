@@ -19,7 +19,7 @@ public interface Computer extends Remote {
      * @return Returns the object returned by the task's execute method
      * @throws java.rmi.RemoteException
      */
-    <T> Result<T> execute(Task<T> t) throws RemoteException;
+    Result<?> execute(Task<?> t) throws RemoteException;
 }
 
 

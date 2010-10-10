@@ -1,5 +1,7 @@
 package api;
 
+import java.util.concurrent.LinkedBlockingQueue;
+
 /**
  * A central resource allocator for all tasks executed on remote servers
  * 
@@ -8,6 +10,8 @@ package api;
  * 
  */
 public interface Space extends java.rmi.Remote {
+	
+	public LinkedBlockingQueue<Task<?>> listTasks = new LinkedBlockingQueue<Task<?>>();
 	/**
 	 * Name of the exposed service
 	 */
