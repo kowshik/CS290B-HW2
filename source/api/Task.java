@@ -13,5 +13,10 @@ public interface Task<T> {
 	 * @return Result of the computation
 	 */
 	T execute();
+	
+	/**
+	 * Returns the unique identifier of this task
+	 */
+	String getTaskIdentifier();
 
 }

@@ -1,47 +1,48 @@
 package api;
 
-import java.util.concurrent.LinkedBlockingQueue;
-
 /**
- * A central resource allocator for all tasks executed on remote servers
+ * Represents a raw computing resource where tasks (({@link api.Task Task}) are automatically executed as soon as
+ * they are dropped in
  * 
  * @author Manasa Chandrasekhar
  * @author Kowshik Prakasam
  * 
  */
 public interface Space extends java.rmi.Remote {
-	
-	public LinkedBlockingQueue<Task<?>> listTasks = new LinkedBlockingQueue<Task<?>>();
+
 	/**
 	 * Name of the exposed service
 	 */
 	String SERVICE_NAME = "Space";
 
 	/**
-	 * The client decomposes the problem into a set of Task objects, and passes
-	 * them to the Space via the put method. In principle, these task objects
-	 * can be processed in parallel by Computers.
+	 * The client decomposes the problem into a set of {@link api.Task Task} objects, and passes
+	 * them to the Space via this method. In principle, these {@link api.Task Task} objects are
+	 * processed in parallel by computers.
 	 * 
-	 * @param <T>
-	 * @param task
+	 * @param task task to be added to the space
+	 *            
 	 * @throws java.rmi.RemoteException
 	 */
 
-	<T> void put(Task<T> task) throws java.rmi.RemoteException;
+	void put(Task<?> task) throws java.rmi.RemoteException;
 
 	/**
-	 * After passing all the task objects to the Space, the client retrieves the
-	 * associated Result objects via the take method. This method blocks until a
-	 * Result is available to return the the client. Thus, if the client sent 10
-	 * Task objects to the Space, it could execute:
+	 * After passing all the task objects to the {@link api.Space Space}, the client retrieves the
+	 * associated {@link api.Result Result} objects via the take method. This method blocks until a
+	 * {@link api.Result Result} object is available to return to the client. Thus, if the client sent 10
+	 * {@link api.Task Task} objects to the {@link api.Space Space}, it could execute:
+	 * <br>
+	 * <br>
+	 * <pre>
+	 * Result[] results = new Result[10];
+	 * for ( int i = 0; i < results.length;i++ ) {
+	 * 		results[i] = takeResult(); // waits for a result to become available.
+	 *  }
+	 *  </pre>
 	 * 
-	 * Result[] results = new Result[10]; for ( int i = 0; i < results.length;
-	 * i++ ) { results[i] = takeResult(); // waits for a result to become
-	 * available. }
-	 * 
-	 * @param <T>
-	 * @return One of the results of the computation
+	 * @return One of the results obtained upon completion of individual tasks
 	 * @throws java.rmi.RemoteException
 	 */
-	<T> Result<T> takeResult() throws java.rmi.RemoteException;
+	Result<?> takeResult() throws java.rmi.RemoteException;
 }
