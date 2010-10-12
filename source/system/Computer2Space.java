@@ -4,6 +4,8 @@ package system;
  * Remote server's view of Space
  */
 public interface Computer2Space extends java.rmi.Remote {
+	
+	String SERVICE_NAME="Computer2Space";
 	/**
 	 * Computer objects can use this method to register with the Space
 	 * 

@@ -2,6 +2,9 @@ package client;
 
 import java.awt.geom.Point2D;
 import java.rmi.RemoteException;
+import java.util.List;
+import java.util.Map;
+import java.util.Vector;
 
 import tasks.MandelbrotSetTask;
 import api.Result;
@@ -23,6 +26,9 @@ public class MandelbrotSetJob extends Job {
 	private double edgeLength;
 	private int n;
 	private int iterLimit;
+	
+	protected List<Result<Integer>> results;
+	protected Map<String, Point2D> taskIdentifierMap;
 
 	/**
 	 * 
@@ -65,7 +71,6 @@ public class MandelbrotSetJob extends Job {
 	 * 
 	 * @see client.Job Job
 	 */
-	@Override
 	public void generateTasks(Space space) throws RemoteException {
 		int i = 0, j = 0;
 
@@ -83,19 +88,20 @@ public class MandelbrotSetJob extends Job {
 
 	}
 
-	@Override
 	/**
-	 * Gathers {@link api.Result Result} objects from the compute space after completion of Mandelbrot Set tasks and populates them into the attribute : {@link #results results}
-	 * 
-	 * @param space Compute space containing the results obtained after remote execution of Mandelbrot Set tasks
+	 * Gathers {@link api.Result Result} objects from the compute space and populates them into the attribute : {@link #results results}
+	 * @param space Compute space containing the results obtained after remote execution of tasks
 	 * @throws RemoteException
 	 * @see client.Job Job
 	 */
 	public void collectResults(Space space) throws RemoteException {
-		super.collectResults(space);
+		for (int i = 0; i < taskIdentifierMap.size(); i++) {
+			Result<Integer> r = (Result<Integer>) space.takeResult();
+			this.results.add(r);
+		}
 	}
 
-	@Override
+
 	/**
 	 * Extracts values from {@link api.Result Result} objects, populates them into a square array and returns it. Each value in the returned array represents a pixel to be displayed on the screen.
 	 * 
@@ -105,7 +111,7 @@ public class MandelbrotSetJob extends Job {
 	 */
 	public int[][] getAllResults() {
 		int[][] allValues = new int[n][n];
-		for (Result<?> r : super.results) {
+		for (Result<Integer> r : results) {
 			int value = (Integer) r.getValue();
 			String identifier = r.getTaskIdentifier();
 			Point2D point = this.taskIdentifierMap.get(identifier);
@@ -113,6 +119,8 @@ public class MandelbrotSetJob extends Job {
 			int y = new Double(point.getY()).intValue();
 			allValues[x][y] = value;
 		}
+	
+		
 		return allValues;
 	}
 
