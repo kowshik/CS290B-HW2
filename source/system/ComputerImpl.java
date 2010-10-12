@@ -15,6 +15,7 @@ import java.rmi.registry.Registry;
 import java.rmi.server.UnicastRemoteObject;
 
 import api.Result;
+import api.Space;
 import api.Task;
 
 /**
@@ -50,7 +51,7 @@ public class ComputerImpl extends UnicastRemoteObject implements Computer {
 
 	/**
 	 * 
-	 * Binds the object into the RMI registry and starts the server
+	 * Register Computer objects to the compute space
 	 */
 	public static void main(String[] args) {
 		String computeSpaceServer=args[0];
@@ -60,8 +61,7 @@ public class ComputerImpl extends UnicastRemoteObject implements Computer {
 		try {
 			
 			ComputerImpl comp = new ComputerImpl();
-			comp.setComputeSpaceServer(computeSpaceServer);
-			Computer2Space space=(Computer2Space) Naming.lookup(Computer2Space.SERVICE_NAME);
+			Computer2Space space=(Computer2Space) Naming.lookup("//" + computeSpaceServer + "/"+Computer2Space.SERVICE_NAME);
 			space.register(comp);
 			System.out.println("Computer ready");
 		} catch (RemoteException e) {
@@ -77,12 +77,6 @@ public class ComputerImpl extends UnicastRemoteObject implements Computer {
 		}
 	}
 
-	public void setComputeSpaceServer(String computeSpaceServer) {
-		this.computeSpaceServer = computeSpaceServer;
-	}
 
-	public String getComputeSpaceServer() {
-		return computeSpaceServer;
-	}
 
 }
