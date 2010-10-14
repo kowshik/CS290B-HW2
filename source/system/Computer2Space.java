@@ -1,13 +1,13 @@
 package system;
 
 /**
- * Remote server's view of Space
+ * Compute server's abstraction of the compute space ({@link api.Space Space})
  */
 public interface Computer2Space extends java.rmi.Remote {
 	
 	String SERVICE_NAME="Space";
 	/**
-	 * Computer objects can use this method to register with the Space
+	 * {@link system.Computer Computer} objects can use this method to register with a compute space ({@link api.Space Space})
 	 * 
 	 * @param computer
 	 *            Registers a remote computer with the resource allocator that

@@ -1,0 +1,133 @@
+Below is the duration of execution of 11 Travelling Salesman Problem Tasks (class : task.TspTask) which were queued by a client.
+
+No. of registered local computers in the compute space : 1
+Computers : Different VMs, Different machines
+Compute space : Different VM, Different machine
+Client : Different VM, Different machine
+
+For each task, we have noted the following :
+
+* Client Start time (epoch) -> Time at which client submitted the task to the compute space
+* Client End time (epoch) -> Time at which client received the result of the task from the compute space
+* Client Elapsed time -> Difference between Client start and end times
+
+* Computer Start time -> Time at which task commenced execution in the Computer
+* Computer End time -> Time at which Computer produced the result for the task
+* Computer Elapsed time -> Difference between Computer start and end times
+
+* Client Total time -> Total time taken to complete all tasks as noted by client
+* Client Average time -> Average time taken to complete all tasks as noted by client
+
+* Computer Total time -> Total time taken to complete all tasks as noted by computer
+* Computer Average time -> Average time taken to complete all tasks as noted by computer
+
+* Client Job Start time -> The start time for the client's job i.e. the TSP solution generation and visualization
+* Client Job End time -> The end time for the client's job i.e. the TSP solution generation and visualization
+* Client Job Elapsed time -> Difference between Client Job Start and End times
+
+
+-------------------
+
+     [java] Generated tasks
+     [java] 
+     [java] Client Task : 1 Start time : 1286938422397 ms
+     [java] Client Task : 1 End   time : 1286938423698 ms
+     [java] Client Task : 1 Elapsed   time : 1301 ms
+     [java] 
+     [java] Computer Task : 1 Start time : 1286939633069 ms
+     [java] Computer Task : 1 End   time : 1286939634064 ms
+     [java] Computer Task : 1 Elapsed   time : 995 ms
+     [java] 
+     [java] Client Task : 2 Start time : 1286938422595 ms
+     [java] Client Task : 2 End   time : 1286938424597 ms
+     [java] Client Task : 2 Elapsed   time : 2002 ms
+     [java] 
+     [java] Computer Task : 2 Start time : 1286939634074 ms
+     [java] Computer Task : 2 End   time : 1286939635019 ms
+     [java] Computer Task : 2 Elapsed   time : 945 ms
+     [java] 
+     [java] Client Task : 3 Start time : 1286938422697 ms
+     [java] Client Task : 3 End   time : 1286938425498 ms
+     [java] Client Task : 3 Elapsed   time : 2801 ms
+     [java] 
+     [java] Computer Task : 3 Start time : 1286939635022 ms
+     [java] Computer Task : 3 End   time : 1286939635992 ms
+     [java] Computer Task : 3 Elapsed   time : 970 ms
+     [java] 
+     [java] Client Task : 4 Start time : 1286938422795 ms
+     [java] Client Task : 4 End   time : 1286938426498 ms
+     [java] Client Task : 4 Elapsed   time : 3703 ms
+     [java] 
+     [java] Computer Task : 4 Start time : 1286939635996 ms
+     [java] Computer Task : 4 End   time : 1286939636925 ms
+     [java] Computer Task : 4 Elapsed   time : 929 ms
+     [java] 
+     [java] Client Task : 5 Start time : 1286938422895 ms
+     [java] Client Task : 5 End   time : 1286938427398 ms
+     [java] Client Task : 5 Elapsed   time : 4503 ms
+     [java] 
+     [java] Computer Task : 5 Start time : 1286939636934 ms
+     [java] Computer Task : 5 End   time : 1286939637865 ms
+     [java] Computer Task : 5 Elapsed   time : 931 ms
+     [java] 
+     [java] Client Task : 6 Start time : 1286938422995 ms
+     [java] Client Task : 6 End   time : 1286938428297 ms
+     [java] Client Task : 6 Elapsed   time : 5302 ms
+     [java] 
+     [java] Computer Task : 6 Start time : 1286939637868 ms
+     [java] Computer Task : 6 End   time : 1286939638797 ms
+     [java] Computer Task : 6 Elapsed   time : 929 ms
+     [java] 
+     [java] Client Task : 7 Start time : 1286938423095 ms
+     [java] Client Task : 7 End   time : 1286938429296 ms
+     [java] Client Task : 7 Elapsed   time : 6201 ms
+     [java] 
+     [java] Computer Task : 7 Start time : 1286939638800 ms
+     [java] Computer Task : 7 End   time : 1286939639729 ms
+     [java] Computer Task : 7 Elapsed   time : 929 ms
+     [java] 
+     [java] Client Task : 8 Start time : 1286938423195 ms
+     [java] Client Task : 8 End   time : 1286938430197 ms
+     [java] Client Task : 8 Elapsed   time : 7002 ms
+     [java] 
+     [java] Computer Task : 8 Start time : 1286939639734 ms
+     [java] Computer Task : 8 End   time : 1286939640674 ms
+     [java] Computer Task : 8 Elapsed   time : 940 ms
+     [java] 
+     [java] Client Task : 9 Start time : 1286938423295 ms
+     [java] Client Task : 9 End   time : 1286938431198 ms
+     [java] Client Task : 9 Elapsed   time : 7903 ms
+     [java] 
+     [java] Computer Task : 9 Start time : 1286939640676 ms
+     [java] Computer Task : 9 End   time : 1286939641610 ms
+     [java] Computer Task : 9 Elapsed   time : 934 ms
+     [java] 
+     [java] Client Task : 10 Start time : 1286938423395 ms
+     [java] Client Task : 10 End   time : 1286938432196 ms
+     [java] Client Task : 10 Elapsed   time : 8801 ms
+     [java] 
+     [java] Computer Task : 10 Start time : 1286939641616 ms
+     [java] Computer Task : 10 End   time : 1286939642548 ms
+     [java] Computer Task : 10 Elapsed   time : 932 ms
+     [java] Tour: 5 9 10 6 2 3 7 11 8 4 0 1 
+     [java] 
+     [java] Client Task : 11 Start time : 1286938423495 ms
+     [java] Client Task : 11 End   time : 1286938432997 ms
+     [java] Client Task : 11 Elapsed   time : 9502 ms
+     [java] 
+     [java] Computer Task : 11 Start time : 1286939642550 ms
+     [java] Computer Task : 11 End   time : 1286939643480 ms
+     [java] Computer Task : 11 Elapsed   time : 930 ms
+     [java] 
+     [java] 
+     [java] Client Total time : 59021 ms
+     [java] Client Average time : 5365.5454 ms
+     [java] 
+     [java] 
+     [java] Computer Total time : 20728 ms
+     [java] Computer Average time : 1884.3636 ms
+     [java]
+     [java] Client Job Start Time : 1286938421070 ms
+     [java] Client Job End Time : 1286938433458 ms
+     [java] Client Job Elapsed Time : 12388 ms
+

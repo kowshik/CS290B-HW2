@@ -2,7 +2,7 @@ package api;
 
 
 /**
- * Models a task that can be executed on a remote machine.
+ * Models any task that can be executed on a remote machine.
  * 
  * @author Manasa Chandrasekhar
  * @author Kowshik Prakasam

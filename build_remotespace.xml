@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+
+<project name="CS290B-HW2" basedir=".">
+    
+    <target name="runRemoteSpace" description="runs space on the remote host">
+        
+        <!-- run remote computer -->
+        <java classname="system.SpaceImpl" fork="true">
+            <jvmarg value="-Djava.security.policy=policy/policy"/>
+            <classpath>
+                <pathelement location="space.jar"/>
+            </classpath>
+        </java>
+    </target>
+    
+    
+    
+</project>

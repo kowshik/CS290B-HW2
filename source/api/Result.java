@@ -1,7 +1,7 @@
 package api;
 
 /**
- * Represents the result obtained after the computation of a remote {@link api.Task Task}
+ * Describes the result obtained upon computation of a remote {@link api.Task Task}
  * 
  * @author Manasa Chandrasekhar
  * @author Kowshik Prakasam
@@ -9,23 +9,23 @@ package api;
 
 public interface Result<T> {
 	/**
-	 * @return Returns the start time of the computation
+	 * @return Returns the start time of the underlying computation
 	 */
 	long getStartTime();
 	
 	/**
-	 * @return Returns the end time of the computation
+	 * @return Returns the end time of the underlying computation
 	 */
 	long getEndTime();
 	
 	/**
-	 * @return Returns computed value
+	 * @return Returns the value computed by the underlying computation
 	 */
 	T getValue(); 	
 	
 	/**
 	 * 
-	 * @return Returns a String object that uniquely identifies the task which produced this result
+	 * @return Returns a String object that uniquely identifies the task ({@link api.Task Task}) (or) computation which produced this result
 	 */
 	String getTaskIdentifier();
 }

@@ -11,14 +11,16 @@ import api.Task;
  * @author Manasa Chandrasekhar
  * @author Kowshik Prakasam
  */
-public final class MandelbrotSetTask implements Task<Integer>, Serializable {
+public final class MandelbrotSetTask implements Task<int[][]>, Serializable {
 
 	private static final long serialVersionUID = -7445556151823532932L;
 	private double lowerX;
 	private double lowerY;
 	private int iterLimit;
-	private static double MANDELBROT_LIMIT = 2.0;
+	private static final double MANDELBROT_LIMIT = 2.0;
 	private String taskIdentifier;
+	private int n;
+	private double edgeLength;
 	
 	/**
 	 * 
@@ -28,14 +30,23 @@ public final class MandelbrotSetTask implements Task<Integer>, Serializable {
 	 * @param lowerY
 	 *            Y-coordinate of the lower left corner of a square in the
 	 *            complex plane
+	 * @param edgeLength
+	 *            Edge length of the square in the complex plane, whose sides
+	 *            are parallel to the axes
+	 * @param n
+	 *            Square region of the complex plane subdivided into n X n
+	 *            squares, each of which is visualized by 1 pixel
 	 * @param iterLimit
 	 *            Defines when the representative point of a region is
 	 *            considered to be in the Mandelbrot set.
+	 * @param taskIdentifier A unique task identifier for this task
 	 */
-	public MandelbrotSetTask(double lowerX, double lowerY, int iterLimit, String taskIdentifier) {
+	public MandelbrotSetTask(double lowerX, double lowerY, double edgeLength, int n, int iterLimit, String taskIdentifier) {
 
 		this.lowerX = lowerX;
 		this.lowerY = lowerY;
+		this.edgeLength = edgeLength;
+		this.n = n;
 		this.iterLimit = iterLimit;
 		this.taskIdentifier=taskIdentifier;
 	}
@@ -46,29 +57,38 @@ public final class MandelbrotSetTask implements Task<Integer>, Serializable {
 	 * 
 	 * @see api.Task Task
 	 */
-	public Integer execute() {
+	public int[][] execute() {
+		
+		
+		int[][] values = new int[n][n];
+		int i = 0, j = 0;
+		for (double xIndex = this.lowerX; i<n; xIndex += edgeLength, i++) {
+			j = 0;
+			
+			for (double yIndex = this.lowerY; j<n; yIndex += edgeLength, j++) {
+				double zLowerReal = xIndex;
+				double zLowerComplex = yIndex;
+				double zReal = zLowerReal;
+				double zComplex = zLowerComplex;
 
-		double zLowerReal = this.lowerX;
-		double zLowerComplex = this.lowerY;
-		double zReal = zLowerReal;
-		double zComplex = zLowerComplex;
+				int k;
+				for (k = 0; k < this.iterLimit
+						&& (modulus(zReal,zComplex) <= MandelbrotSetTask.MANDELBROT_LIMIT); k++) {
+					double zPrevReal = zReal;
+					zReal = zReal * zReal - zComplex * zComplex + zLowerReal;
+					zComplex = 2 * zPrevReal * zComplex + zLowerComplex;
+				}
 
-		int k;
-		for (k = 0; k < this.iterLimit
-				&& (zReal * zReal + zComplex * zComplex <= MandelbrotSetTask.MANDELBROT_LIMIT); k++) {
-			double zPrevReal = zReal;
-			zReal = zReal * zReal - zComplex * zComplex + zLowerReal;
-			zComplex = 2 * zPrevReal * zComplex + zLowerComplex;
-			zPrevReal = zReal;
+				if (modulus(zReal,zComplex) <= MandelbrotSetTask.MANDELBROT_LIMIT) {
 
+					values[i][j] = this.iterLimit;
+				} else {
+
+					values[i][j] = k;
+				}
+			}
 		}
-
-		if (zReal * zReal + zComplex * zComplex <= MandelbrotSetTask.MANDELBROT_LIMIT) {
-
-			return this.iterLimit;
-		}
-
-		return k;
+		return values;
 	}
 	
 	/**
@@ -78,5 +98,10 @@ public final class MandelbrotSetTask implements Task<Integer>, Serializable {
 	 */
 	public String getTaskIdentifier(){
 		return taskIdentifier;
+	}
+	
+	
+	private double modulus(double zReal, double zComplex){
+		return Math.sqrt(zReal * zReal + zComplex * zComplex);
 	}
 }

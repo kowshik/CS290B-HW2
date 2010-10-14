@@ -1,0 +1,227 @@
+<html>
+  <head>
+    <title>Mandelbrot Set
+    </title>
+    <style type="text/css">ol{margin:0;padding:0}p{margin:0}.c0{vertical-align:top;width:57.0pt;border-style:solid;border-color:#000000;border-width:1.0pt;padding:5.0pt 5.0pt 5.0pt 5.0pt}.c6{vertical-align:top;width:117.0pt;border-style:solid;border-color:#000000;border-width:1.0pt;padding:5.0pt 5.0pt 5.0pt 5.0pt}.c2{vertical-align:top;width:177.0pt;border-style:solid;border-color:#000000;border-width:1.0pt;padding:5.0pt 5.0pt 5.0pt 5.0pt}.c5{color:#000000;font-size:12pt;font-family:Arial;font-weight:bold}.c4{color:#0000ff;font-size:11pt;font-family:Arial;font-weight:bold}.c3{line-height:1.15;text-indent:0pt;direction:ltr}.c1{color:#000000;font-size:11pt;font-family:Arial}.c8{border-collapse:collapse}.c9{background-color:#ffffff}.c7{text-align:center}
+    </style>
+  </head>
+  <body class="c9">
+    <p class="c3">
+      <span class="c5">MANDELBROT SET
+      </span>
+    </p>
+    <p class="c3">
+      <span class="c5">&nbsp;
+      </span>
+    </p>
+    <p class="c3">
+      <span class="c5">&nbsp;
+      </span>
+    </p>
+    <p class="c3">
+      <span class="c1">Task class : tasks.MandelbrotSetTask
+      </span>
+    </p>
+    <p class="c3">
+      <span class="c1">&nbsp;
+      </span>
+    </p>
+    <p class="c3">
+      <span class="c1">&nbsp;
+      </span>
+    </p>
+    <p class="c3">
+      <span class="c1">&nbsp;
+      </span>
+    </p>
+    <table cellpadding="0" cellspacing="0" class="c8">
+      <tbody>
+        <tr>
+          <td class="c0">
+            <p class="c3">
+              <span class="c1">Iteration No.
+              </span>
+            </p>
+          </td>
+          <td class="c2">
+            <p class="c3">
+              <span class="c1">Start time (epoch) in milliseconds
+              </span>
+            </p>
+          </td>
+          <td class="c6">
+            <p class="c3">
+              <span class="c1">End time (epoch) in milliseconds
+              </span>
+            </p>
+          </td>
+          <td class="c6">
+            <p class="c3">
+              <span class="c1">End time - Start time
+              </span>
+            </p>
+          </td>
+        </tr>
+        <tr>
+          <td class="c0">
+            <p class="c3 c7">
+              <span class="c1">1
+              </span>
+            </p>
+          </td>
+          <td class="c2">
+            <p class="c3 c7">
+              <span class="c1">1286941031605
+              </span>
+            </p>
+          </td>
+          <td class="c6">
+            <p class="c3 c7">
+              <span class="c1">1286941139710
+              </span>
+            </p>
+          </td>
+          <td class="c6">
+            <p class="c3 c7">
+              <span class="c1">108105
+              </span>
+            </p>
+          </td>
+        </tr>
+        <tr>
+          <td class="c0">
+            <p class="c3 c7">
+              <span class="c1">2
+              </span>
+            </p>
+          </td>
+          <td class="c2">
+            <p class="c3 c7">
+              <span class="c1">1286941033303
+              </span>
+            </p>
+          </td>
+          <td class="c6">
+            <p class="c3 c7">
+              <span class="c1">1286941141309
+              </span>
+            </p>
+          </td>
+          <td class="c6">
+            <p class="c3 c7">
+              <span class="c1">108006
+              </span>
+            </p>
+          </td>
+        </tr>
+        <tr>
+          <td class="c0">
+            <p class="c3 c7">
+              <span class="c1">3
+              </span>
+            </p>
+          </td>
+          <td class="c2">
+            <p class="c3 c7">
+              <span class="c1">1286941037707
+              </span>
+            </p>
+          </td>
+          <td class="c6">
+            <p class="c3 c7">
+              <span class="c1">1286941145708
+              </span>
+            </p>
+          </td>
+          <td class="c6">
+            <p class="c3 c7">
+              <span class="c1">108001
+              </span>
+            </p>
+          </td>
+        </tr>
+        <tr>
+          <td class="c0">
+            <p class="c3 c7">
+              <span class="c1">4
+              </span>
+            </p>
+          </td>
+          <td class="c2">
+            <p class="c3 c7">
+              <span class="c1">1286941043107
+              </span>
+            </p>
+          </td>
+          <td class="c6">
+            <p class="c3 c7">
+              <span class="c1">1286941151108
+              </span>
+            </p>
+          </td>
+          <td class="c6">
+            <p class="c3 c7">
+              <span class="c1">108001
+              </span>
+            </p>
+          </td>
+        </tr>
+        <tr>
+          <td class="c0">
+            <p class="c3 c7">
+              <span class="c1">5
+              </span>
+            </p>
+          </td>
+          <td class="c2">
+            <p class="c3 c7">
+              <span class="c1">1286941138107
+              </span>
+            </p>
+          </td>
+          <td class="c6">
+            <p class="c3 c7">
+              <span class="c1">1286941241904 
+              </span>
+            </p>
+          </td>
+          <td class="c6">
+            <p class="c3 c7">
+              <span class="c1">103797
+              </span>
+            </p>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <p class="c3">
+      <span class="c1">&nbsp;
+      </span>
+    </p>
+    <p class="c3">
+      <span class="c1">&nbsp;
+      </span>
+    </p>
+    <p class="c3">
+      <span class="c1">&nbsp;
+      </span>
+    </p>
+    <p class="c3">
+      <span class="c1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Total time &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: 110068028 ms
+      </span>
+    </p>
+    <p class="c3">
+      <span class="c1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Average time &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: 107488.31 ms 
+      
+    </p>
+    <p class="c3">
+      <span class="c4">&nbsp;
+      </span>
+    </p>
+    <p class="c3">
+      <span class="c4">&nbsp;
+      </span>
+    </p>
+
+  </body>
+</html>

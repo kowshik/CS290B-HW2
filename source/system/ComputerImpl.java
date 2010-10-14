@@ -1,7 +1,3 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 
 package system;
 
@@ -10,12 +6,9 @@ import java.net.MalformedURLException;
 import java.rmi.Naming;
 import java.rmi.NotBoundException;
 import java.rmi.RemoteException;
-import java.rmi.registry.LocateRegistry;
-import java.rmi.registry.Registry;
 import java.rmi.server.UnicastRemoteObject;
 
 import api.Result;
-import api.Space;
 import api.Task;
 
 /**
@@ -27,7 +20,6 @@ import api.Task;
 public class ComputerImpl extends UnicastRemoteObject implements Computer {
 
 	private static final long serialVersionUID = -4634299253959618077L;
-	private String computeSpaceServer;
 	/**
 	 * Sets up the server for execution
 	 * @throws RemoteException
@@ -40,11 +32,11 @@ public class ComputerImpl extends UnicastRemoteObject implements Computer {
 	 * @see api.Task Task
 	 */
 
-	public Result execute(Task<?> t) {
+	public Result<?> execute(Task<?> t) {
 		
-		long startTime=System.nanoTime();
+		long startTime=System.currentTimeMillis();
 		Object value=t.execute();
-		long endTime=System.nanoTime();
+		long endTime=System.currentTimeMillis();
 		Result<?> r=new ResultImpl<Object>(startTime, endTime, value, t.getTaskIdentifier());
 		return r;
 	}

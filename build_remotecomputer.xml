@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+
+<project name="CS290B-HW2" basedir=".">
+    
+    <target name="runRemoteComputer" description="runs computer on the remote host">
+        
+        <!-- run remote computer -->
+        <java classname="system.ComputerImpl" fork="true">
+            <jvmarg value="-Djava.security.policy=policy/policy"/>
+            <arg value="snoopy.cs.ucsb.edu:2672"/>
+            <classpath>
+                <pathelement location="computer.jar"/>
+            </classpath>
+        </java>
+    </target>
+    
+    
+    
+</project>
